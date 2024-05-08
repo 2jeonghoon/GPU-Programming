@@ -1,0 +1,10 @@
+^C:\USERS\2JH09\DESKTOP\GPU-PROGRAMMING\WEEK1\GLFW-3.4\BUILD\CMAKEFILES\45023669C1F1E8B43FF70F3F76762F0B\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

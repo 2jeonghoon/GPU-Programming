@@ -1,0 +1,5 @@
+﻿  HelloTriangle.cpp
+C:\Users\2jh09\Desktop\GPU-Programming\Week2\HelloTriangle\src\HelloTriangle.cpp(157,21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\2jh09\Desktop\GPU-Programming\Week2\HelloTriangle\src\HelloTriangle.cpp(177,25): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\2jh09\Desktop\GPU-Programming\Week2\HelloTriangle\src\HelloTriangle.cpp(132,28): warning C4101: 'EBO' :참조되지 않은 지역 변수입니다.
+  HelloTriangle.vcxproj -> C:\Users\2jh09\Desktop\GPU-Programming\Week2\x64\Debug\HelloTriangle.exe
