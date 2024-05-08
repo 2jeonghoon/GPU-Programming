@@ -77,6 +77,7 @@ int main()
     Shader shaderGreen("shader/8.advanced_glsl.vs", "shader/8.green.fs");
     Shader shaderBlue("shader/8.advanced_glsl.vs", "shader/8.blue.fs");
     Shader shaderYellow("shader/8.advanced_glsl.vs", "shader/8.yellow.fs");
+    Shader shaderWhite("shader/8.advanced_glsl.vs", "shader/8.white.fs");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -141,11 +142,13 @@ int main()
     unsigned int uniformBlockIndexGreen = glGetUniformBlockIndex(shaderGreen.ID, "Matrices");
     unsigned int uniformBlockIndexBlue = glGetUniformBlockIndex(shaderBlue.ID, "Matrices");
     unsigned int uniformBlockIndexYellow = glGetUniformBlockIndex(shaderYellow.ID, "Matrices");
+    unsigned int uniformBlockIndexWhite = glGetUniformBlockIndex(shaderWhite.ID, "Matrices");
     // then we link each shader's uniform block to this uniform binding point
     glUniformBlockBinding(shaderRed.ID, uniformBlockIndexRed, 0);
     glUniformBlockBinding(shaderGreen.ID, uniformBlockIndexGreen, 0);
     glUniformBlockBinding(shaderBlue.ID, uniformBlockIndexBlue, 0);
     glUniformBlockBinding(shaderYellow.ID, uniformBlockIndexYellow, 0);
+    glUniformBlockBinding(shaderWhite.ID, uniformBlockIndexWhite, 0);
     // Now actually create the buffer
     unsigned int uboMatrices;
     glGenBuffers(1, &uboMatrices);
@@ -191,26 +194,32 @@ int main()
         glBindVertexArray(cubeVAO);
         shaderRed.use();
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(-0.75f, 0.75f, 0.0f)); // move top-left
+        model = glm::translate(model, glm::vec3(-1, 1, 0.0f)); // move top-left
         shaderRed.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         // GREEN
         shaderGreen.use();
         model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.75f, 0.75f, 0.0f)); // move top-right
+        model = glm::translate(model, glm::vec3(1, 1, 0.0f)); // move top-right
         shaderGreen.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         // YELLOW
         shaderYellow.use();
         model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(-0.75f, -0.75f, 0.0f)); // move bottom-left
+        model = glm::translate(model, glm::vec3(-1, -1, 0.0f)); // move bottom-left
         shaderYellow.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         // BLUE
         shaderBlue.use();
         model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.75f, -0.75f, 0.0f)); // move bottom-right
+        model = glm::translate(model, glm::vec3(1, -1, 0.0f)); // move bottom-right
         shaderBlue.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        shaderWhite.use();
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0, 0, 0.0f)); // move bottom-right
+        shaderWhite.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)

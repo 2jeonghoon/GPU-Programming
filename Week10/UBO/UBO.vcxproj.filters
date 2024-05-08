@@ -49,5 +49,8 @@
     <None Include="shader\8.blue.fs">
       <Filter>Shader</Filter>
     </None>
+    <None Include="8.white.fs">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>
